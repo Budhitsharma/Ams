@@ -1,0 +1,299 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="icon" type="image/svg" href="{% static 'myapp/css/images/Logo.svg' %}">
+  <title>Employee Details</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'myapp/css/dashboard.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="g-sidenav-show bg-gray-200">
+
+  <!------------------------->
+  <!-- Aside Section Start -->
+  <!------------------------->
+
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+    style="background-color: #fff;">
+    <div class="sidenav-header">
+      <a class="navbar-brand m-0 d-block align-items-center justify-content-between " href="https://iwebwiser.com/"
+        target="_blank">
+        <img src="{% static 'myapp/css/images/Logo.svg' %}" class="navbar-brand-img h-50 d-inline-block" alt="main_logo">
+        <span class="fs-3 font-weight-bold d-inline-block" style="color: #015dff;vertical-align: top;">iWebwiser</span>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/dashboard">
+            <div class=" text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark active" style="background-color: #0d6efd;" href="/employeeList">
+            <div class="text-daark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <span class="nav-link-text ms-1">Employee List</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/requestedLeave">
+            <div class="text-daark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-list"></i>
+            </div>
+            <span class="nav-link-text ms-1">Leave Requests</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!----------------------->
+  <!-- Aside Section End -->
+  <!----------------------->
+
+  <!------------------------>
+  <!-- Main Section Start -->
+  <!------------------------>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg py-3" style="overflow:scroll;">
+
+    <!-------------------------->
+    <!-- Navigation Bar Start -->
+    <!-------------------------->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 blur shadow border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <h6 class="font-weight-bolder mb-0">iWebwiser</h6>
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm">
+              <a class="opacity-5 text-dark" style="text-decoration: none !important;" href="javascript:;">Employee
+                List</a>
+            </li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Details</li>
+
+          </ol>
+
+        </nav>
+
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <ul class="navbar-nav d-flex justify-content-end gap-3 align-items-center">
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner" style="color: #344767 !important;">
+                  <i class="fa-solid fa-bars" style="background-color: transparent;"></i>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="{% url 'logout' %}" class="nav-link text-body font-weight-bold px-0" style="color: #344767 !important;">
+                <i class="fa fa-sign-out me-sm-1"></i>
+                <span class="d-sm-inline d-none">Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <!------------------------>
+    <!-- Navigation Bar End -->
+    <!------------------------>
+
+    <div class="container-fluid py-4" id="dashboard">
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+        <a href="{% url 'editEmployeesProfile' emp.user_id %}">
+          <button class="btn btn-primary me-md-2 px-3" type="button">
+            <i class="fa-solid fa-user-pen"></i> Update
+          </button>
+        </a>
+      </div>
+
+      <!-- Employee Details Table Start -->
+      <div class="container my-3">
+        <div class="row rounded-4 p-2 bg-white shadow d-flex align-items-center justify-content-evenly gap-4">
+
+          <div class="col-xl-3 d-flex align-items-center justify-content-center flex-column padding gap-2">
+            <div class="img-size">
+              {% if emp.image %} 
+              <img src="{{emp.image.url}}" class="img-fluid shadow mt-1" alt="{{emp.user.username}}'s Image">
+              {% else %}
+              <img src="{% static 'myapp/css/images/Logo.svg' %}" alt="Default Image">
+              {% endif %}
+            </div>
+            <div class="input-group align-items-center">
+              <span class="input-group-text">Name</span>
+              <label type="text" class="form-control name" name="username" >{{emp.user.username}}</label>
+            </div>
+
+          </div>
+
+          <div class="col-xl-9 w-auto padding">
+
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3 ">
+                <span class="input-group-text input-width">Email</span>
+                <label type="email" class="form-control label-width" name="email">{{emp.user.email}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Contact</span>
+                <label type="number" class="form-control label-width" name="contact">{{emp.contact}}</label>
+              </div>
+            </div>
+
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Gender</span>
+                <label class="form-control" name="gender">{{emp.gender}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Date of Birth</span>
+                <label class="form-control" name="dob">{{emp.birth_date}}</label>
+              </div>
+            </div>
+
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Aadhar No.</span>
+                <label class="form-control">{{emp.aadhar_no}}</label>
+
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">PAN No.</span>
+                <label class="form-control">{{emp.pan_no}}</label>
+              </div>
+            </div>
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Skype ID</span>
+                <label class="form-control">{{emp.skype_id}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Role</span>
+                <label class="form-control">{{emp.role}}</label>
+              </div>
+            </div> 
+            <div class="input-group flex-nowrap mb-3">
+              <span class="input-group-text input-width">LinkedIn ID</span>
+              <label class="form-control">{{emp.linkedin_id}}</label>
+            </div>
+            <div class="input-group flex-nowrap mb-3">
+              <span class="input-group-text input-width">Address</span>
+              <label class="form-control">{{emp.address}}</label>
+            </div>
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Qualification</span>
+                <label type="text" class="form-control" name="qualification">{{emp.qualification}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Technology</span>
+                <label type="text" class="form-control" name="technology">{{emp.technology}}</label>
+              </div>
+            </div>
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Per Company</span>
+                <label type="text" class="form-control" name="previous-company">{{emp.perv_company}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Experience</span>
+                <label type="text" class="form-control" name="experience">{{emp.experience}}</label>
+              </div>
+            </div>
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Acc No.</span>
+                <label class="form-control">{{emp.acc_no}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Acc Holder</span>
+                <label class="form-control">{{emp.acc_name}}</label>
+              </div>
+            </div>
+            <div class="my-class-forth">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">Bank Name</span>
+                <label class="form-control">{{emp.bank_name}}</label>
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text input-width">IFSC Code</span>
+                <label class="form-control">{{emp.ifsc_code}}</label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- Employee Details Table End -->
+
+    <!-- Footer Section Start -->
+    <footer class="footer py-4  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              ©
+              <script>document.write(new Date().getFullYear())</script>, by
+              <a href="https://www.iwebwiser.com" class="font-weight-bold iwebwiser" target="_blank">IWebWiser</a>
+              Software Oriented Services.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    </div>
+  </main>
+  <!---------------------->
+  <!-- Main Section End -->
+  <!---------------------->
+
+  <!-- External Scripts -->
+  <script src="{% static 'myapp/js/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'myapp/js/smooth-scrollbar.min.js' %}"></script>
+  <script src="{% static 'myapp/js/material-dashboard.min.js' %}"></script>
+</body>
+
+</html>
